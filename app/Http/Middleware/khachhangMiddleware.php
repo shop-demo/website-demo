@@ -37,7 +37,7 @@ class khachhangMiddleware
 
             //return view('admin.error.403');//quay về login để đăng nhập
             //return response()->view('admin.error.403',['code'=>403]);
-         //   return redirect()->route('error',['code'=>403]);
+           return redirect()->route('error',['code'=>403]);
             //  abort(403, 'Unauthorized action.');
             // redirect()->back();
         }
