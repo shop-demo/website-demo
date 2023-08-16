@@ -45,5 +45,14 @@ class khachhangModel extends Authenticatable
 		 	
 		 
 	}	
+	//bảng phụ dat_hang
+	public function dat_hang(){
+		return $this->hasOne('App\Models\checkoutModel','khach_hang_id','id');
+	}
+
+	
+
+
+
 }
 

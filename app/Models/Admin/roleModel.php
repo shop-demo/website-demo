@@ -14,7 +14,5 @@ class roleModel extends Model
     protected $primariKey ='id';
     public $timestamps = true;
 
-    
-
-
+   
 }

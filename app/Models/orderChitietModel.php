@@ -13,4 +13,8 @@ class orderChitietModel extends Model
     protected $primariKey ='id';
     public $timestamps = true;
 
+	
+
+
+
 }

@@ -164,7 +164,10 @@ route::group(['prefix'=>'admin','middleware'=>'khachhang','as'=>'admin.'],functi
 		Route::post('',[checkoutController::class,'submit'])->name('submitCheckout');
 		Route::get('accept_order/{id}/{token_order}',[checkoutController::class,'accept_order'])->name('accept_order');
 
-		Route::post('rating',[khachhangController::class, 'rating'])->name('rating');
+		//Route::post('rating',[khachhangController::class, 'rating'])->name('rating');
+		
+
+		Route::middleware(['rating_premisstion'])->post('rating',[khachhangController::class, 'rating'])->name('rating');
 		
 	});
 

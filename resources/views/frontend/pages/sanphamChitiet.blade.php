@@ -5,10 +5,11 @@
 @endsection 
 @section('main')
 @include('frontend.pages.block.header')
+
+
  
 <!--/category-products Danh muc -->
- 
-<section>
+   
    <div class="container">
      <div class="row">
      <!--chitiet-->
@@ -54,7 +55,7 @@
               </div>
 
             </div><!--/product-details-->
-           
+         
 
             <div class="col-sm-7">
               <div class="product-information"><!--/product-information-->
@@ -239,7 +240,7 @@
 
       }).on("rateyo.set", function (e, data) {
  
-                alert("Bạn login tài khoản để được đánh giá sản phẩm");
+                alert("Bạn login tài khoản và mua sản phẩm để được đánh giá sản phẩm");
         });
 
 

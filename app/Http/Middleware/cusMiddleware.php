@@ -19,12 +19,13 @@ class cusMiddleware
     public function handle(Request $request, Closure $next,$guard="cus")
     {
 
-        if (!Auth::guard($guard)->check()) {//chưa đăng nhập
-            
 
-            return redirect()->route('login.index');//quay về login để đăng nhập
-           
+        if (!Auth::guard($guard)->check()) {//chưa đăng nhập
+
+           return redirect()->route('login.index');//quay về login để đăng nhập
+            
          }
+         
         return $next($request);
     }
 }

@@ -9,6 +9,7 @@ use App\Models\ratingModel;
 use App\Models\commentAjax_model;
 use App\Models\admin\khachhangModel;
 use App\Models\checkoutModel;
+use App\Models\orderChitietModel;
 use DB;
 use Auth;
 use Str;
@@ -67,32 +68,33 @@ class homeController extends Controller
 /*------------------------------------------------------------*/
 /*------------------------------------------------------------*/
 
-    public function ChiTietSP($category,$slug){
+    public function ChiTietSP($category,$slug,request $request){
         //lấy toàn bộ sản phẩm
        // DB::enableQueryLog();
+
         $dataTheloai = theLoaiModel::all();
         $category = theLoaiModel::where('code',$slug)->first();
 
         //chi tiết sản phẩm
         $chiTietSp = sanphamModel:: where('code',$slug)->first();
 
-        //review rating
+        //REVIEW RATING
         $id_Sp = $chiTietSp->id;
-
       
-       
+
         $ratingSP = round(ratingModel::where('san_pham_id',$id_Sp)->avg('rating_star'));
        
-        //view comm
+        //VIEW COMM
         
         $getComm = commentAjax_model::where(['reply_id'=>0,'san_pham_id'=>$id_Sp])->orderBy('id','DESC')->get();
         
-        //view số lượng bình luận
+        //VIEW SỐ LƯỢNG BÌNH LUẬN
         $totalComm = $getComm->count(); 
-
-
+        
        // $query = DB::getQueryLog();
-      
+       // $user = Auth::guard('cus')->user()->name;
+       
+    
        return view('frontend.pages.sanphamChitiet',compact('dataTheloai','chiTietSp','category','ratingSP','totalComm'));
     }
 /*------------------------------------------------------------*/
@@ -120,6 +122,7 @@ public function SP($category,$slug, request $request){
         //view số lượng bình luận
         $totalComm = $getComm->count(); 
       // echo $request->url();
+
         
 
        // $query = DB::getQueryLog();

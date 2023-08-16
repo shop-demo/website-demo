@@ -13,5 +13,4 @@ class checkoutModel extends Model
     protected $primariKey ='id';
     public $timestamps = true;
 
-
 }
